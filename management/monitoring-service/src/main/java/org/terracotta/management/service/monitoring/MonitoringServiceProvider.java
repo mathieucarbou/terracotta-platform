@@ -29,6 +29,7 @@ import org.terracotta.management.sequence.TimeSource;
 import org.terracotta.management.service.monitoring.registry.OffHeapResourceBinding;
 import org.terracotta.management.service.monitoring.registry.OffHeapResourceSettingsManagementProvider;
 import org.terracotta.management.service.monitoring.registry.OffHeapResourceStatisticsManagementProvider;
+import org.terracotta.monitoring.IMonitoringProducer;
 import org.terracotta.monitoring.IStripeMonitoring;
 import org.terracotta.offheapresource.OffHeapResourceIdentifier;
 import org.terracotta.offheapresource.OffHeapResources;
@@ -217,9 +218,12 @@ public class MonitoringServiceProvider implements ServiceProvider, Closeable {
         }
         return serviceType.cast(entityMonitoringServices.computeIfAbsent(consumerID, cid -> {
           PassiveEntityMonitoringServiceConfiguration passiveEntityMonitoringServiceConfiguration = (PassiveEntityMonitoringServiceConfiguration) configuration;
-          DefaultPassiveEntityMonitoringService passiveEntityMonitoringService = new DefaultPassiveEntityMonitoringService(
-              consumerID,
-              passiveEntityMonitoringServiceConfiguration.getMonitoringProducer());
+          IMonitoringProducer monitoringProducer = passiveEntityMonitoringServiceConfiguration.getMonitoringProducer();
+          if (monitoringProducer == null) {
+            LOGGER.warn("Platform service " + IMonitoringProducer.class.getSimpleName() + " is not accessible.");
+            return null;
+          }
+          DefaultPassiveEntityMonitoringService passiveEntityMonitoringService = new DefaultPassiveEntityMonitoringService(consumerID, monitoringProducer);
           return passiveEntityMonitoringService;
         }));
       } else {

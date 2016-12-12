@@ -13,22 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terracotta.voltron.proxy;
+package org.terracotta.management.entity.sample.server;
+
+import com.tc.classloader.CommonComponent;
+import org.terracotta.entity.ServiceConfiguration;
 
 /**
- * @author Alex Snaps
+ * @author Mathieu Carbou
  */
-public interface Codec {
+@CommonComponent
+public class ServerCacheConfiguration implements ServiceConfiguration<ServerCache> {
 
-  byte[] encode(Class<?> type, Object value);
+  private final String name;
 
-  byte[] encode(Class<?>[] types, Object[] values);
+  public ServerCacheConfiguration(String name) {
+    this.name = name;
+  }
 
-  <T> T decode(Class<T> type, byte[] buffer);
+  public String getName() {
+    return name;
+  }
 
-  <T> T decode(Class<T> type, byte[] buffer, int offset, int len);
-
-  Object[] decode(Class<?>[] types, byte[] buffer);
-
-  Object[] decode(Class<?>[] types, byte[] buffer, int offset, int len);
+  @Override
+  public Class<ServerCache> getServiceType() {
+    return ServerCache.class;
+  }
 }

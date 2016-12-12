@@ -15,38 +15,14 @@
  */
 package org.terracotta.voltron.proxy.server;
 
-import org.terracotta.voltron.proxy.MessageListener;
-
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
+import org.terracotta.entity.ClientDescriptor;
 
 /**
  * @author Alex Snaps
  */
-public abstract class MessageFiring {
+public interface MessageFiring {
 
-  private static final MessageListener FAKE = new MessageListener() {
-    @Override
-    public void onMessage(final Object message) {
-      // no op;
-    }
-  };
+  <T> void fireMessage(Class<T> type, T message, boolean echo);
 
-  private final ConcurrentMap<Class<?>, MessageListener> listeners = new ConcurrentHashMap<Class<?>, MessageListener>();
-
-  public MessageFiring(Class<?>... messageTypes) {
-    for (Class<?> messageType : messageTypes) {
-      this.listeners.put(messageType, FAKE);
-    }
-  }
-
-  protected void fire(Object message) {
-    listeners.get(message.getClass()).onMessage(message);
-  }
-
-  public <T> void registerListener(Class<T> messageType, MessageListener<T> listener) {
-    if(!listeners.replace(messageType, FAKE, listener)) {
-      throw new IllegalStateException();
-    }
-  }
+  <T> void fireMessage(Class<T> type, T message, ClientDescriptor[] clients);
 }

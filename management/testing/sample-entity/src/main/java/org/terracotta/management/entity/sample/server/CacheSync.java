@@ -13,22 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terracotta.voltron.proxy;
+package org.terracotta.management.entity.sample.server;
+
+import java.util.Map;
 
 /**
- * @author Alex Snaps
+ * @author Mathieu Carbou
  */
-public interface Codec {
-
-  byte[] encode(Class<?> type, Object value);
-
-  byte[] encode(Class<?>[] types, Object[] values);
-
-  <T> T decode(Class<T> type, byte[] buffer);
-
-  <T> T decode(Class<T> type, byte[] buffer, int offset, int len);
-
-  Object[] decode(Class<?>[] types, byte[] buffer);
-
-  Object[] decode(Class<?>[] types, byte[] buffer, int offset, int len);
+public interface CacheSync {
+  void syncCacheDataInPassives(Map<String, String> data);
 }

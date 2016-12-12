@@ -13,22 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terracotta.voltron.proxy;
+package org.terracotta.management.entity.sample.ha;
+
+import org.terracotta.management.entity.sample.AbstractTest;
 
 /**
- * @author Alex Snaps
+ * @author Mathieu Carbou
  */
-public interface Codec {
+public abstract class AbstractHaTest extends AbstractTest {
 
-  byte[] encode(Class<?> type, Object value);
+  public AbstractHaTest() {
+    super(1);
+  }
 
-  byte[] encode(Class<?>[] types, Object[] values);
-
-  <T> T decode(Class<T> type, byte[] buffer);
-
-  <T> T decode(Class<T> type, byte[] buffer, int offset, int len);
-
-  Object[] decode(Class<?>[] types, byte[] buffer);
-
-  Object[] decode(Class<?>[] types, byte[] buffer, int offset, int len);
 }

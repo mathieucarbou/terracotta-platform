@@ -13,22 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.terracotta.voltron.proxy;
+package org.terracotta.management.entity.tms.server;
+
+import org.terracotta.management.entity.tms.TmsAgent;
+import org.terracotta.voltron.proxy.server.PassiveProxiedServerEntity;
 
 /**
- * @author Alex Snaps
+ * @author Mathieu Carbou
  */
-public interface Codec {
+class PassiveTmsAgentServerEntity extends PassiveProxiedServerEntity<TmsAgent, Void> {
 
-  byte[] encode(Class<?> type, Object value);
+  private final PassiveTmsAgent tmsAgent;
 
-  byte[] encode(Class<?>[] types, Object[] values);
+  PassiveTmsAgentServerEntity(PassiveTmsAgent tmsAgent) {
+    super(tmsAgent, null);
+    this.tmsAgent = tmsAgent;
+  }
 
-  <T> T decode(Class<T> type, byte[] buffer);
+  @Override
+  public void createNew() {
+    tmsAgent.init();
+  }
 
-  <T> T decode(Class<T> type, byte[] buffer, int offset, int len);
-
-  Object[] decode(Class<?>[] types, byte[] buffer);
-
-  Object[] decode(Class<?>[] types, byte[] buffer, int offset, int len);
 }
