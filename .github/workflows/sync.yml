@@ -6,13 +6,13 @@ on:
 jobs:
   sync-master:
     runs-on: ubuntu-latest
-    name: "Sync: master"
+    name: "Sync from Terracotta-OSS/terracotta-platform@master"
     steps:
     - name: "Checkout: master"
       uses: actions/checkout@v2
       with:
         ref: master
-    - name: "Sync: master"
+    - name: "Update: master"
       id: sync-master
       uses: aormsby/Fork-Sync-With-Upstream-action@v2.3
       with:
