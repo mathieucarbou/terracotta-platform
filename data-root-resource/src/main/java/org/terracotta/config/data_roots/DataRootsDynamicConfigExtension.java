@@ -20,9 +20,9 @@ import org.terracotta.dynamic_config.api.model.NodeContext;
 import org.terracotta.dynamic_config.api.model.Setting;
 import org.terracotta.dynamic_config.api.service.IParameterSubstitutor;
 import org.terracotta.dynamic_config.api.service.TopologyService;
-import org.terracotta.dynamic_config.server.api.ConfigChangeHandlerManager;
+import org.terracotta.dynamic_config.api.server.ConfigChangeHandlerManager;
 import org.terracotta.dynamic_config.server.api.DynamicConfigExtension;
-import org.terracotta.dynamic_config.server.api.PathResolver;
+import org.terracotta.dynamic_config.api.server.PathResolver;
 import org.terracotta.entity.PlatformConfiguration;
 
 import java.nio.file.Path;

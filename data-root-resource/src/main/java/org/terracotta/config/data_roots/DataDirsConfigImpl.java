@@ -23,7 +23,7 @@ import org.terracotta.config.data_roots.management.DataRootSettingsManagementPro
 import org.terracotta.config.data_roots.management.DataRootStatisticsManagementProvider;
 import org.terracotta.data.config.DataRootMapping;
 import org.terracotta.dynamic_config.api.service.IParameterSubstitutor;
-import org.terracotta.dynamic_config.server.api.PathResolver;
+import org.terracotta.dynamic_config.api.server.PathResolver;
 import org.terracotta.entity.PlatformConfiguration;
 import org.terracotta.entity.StateDumpCollector;
 import org.terracotta.entity.StateDumpable;

@@ -16,7 +16,7 @@
  */
 package org.terracotta.config.data_roots;
 
-import org.terracotta.dynamic_config.server.api.InvalidConfigChangeException;
+import org.terracotta.dynamic_config.api.server.InvalidConfigChangeException;
 
 import java.io.IOException;
 import java.nio.file.DirectoryStream;

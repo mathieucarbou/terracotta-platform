@@ -22,7 +22,7 @@ import org.terracotta.config.util.DefaultSubstitutor;
 import org.terracotta.config.util.ParameterSubstitutor;
 import org.terracotta.data.config.DataDirectories;
 import org.terracotta.dynamic_config.api.service.IParameterSubstitutor;
-import org.terracotta.dynamic_config.server.api.PathResolver;
+import org.terracotta.dynamic_config.api.server.PathResolver;
 import org.w3c.dom.Element;
 
 import javax.xml.bind.JAXBContext;

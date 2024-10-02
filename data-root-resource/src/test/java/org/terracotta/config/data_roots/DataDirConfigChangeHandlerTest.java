@@ -24,7 +24,7 @@ import org.terracotta.dynamic_config.api.model.RawPath;
 import org.terracotta.dynamic_config.api.model.Setting;
 import org.terracotta.dynamic_config.api.model.Testing;
 import org.terracotta.dynamic_config.api.model.nomad.SettingNomadChange;
-import org.terracotta.dynamic_config.server.api.PathResolver;
+import org.terracotta.dynamic_config.api.server.PathResolver;
 import org.terracotta.testing.TmpDir;
 
 import java.nio.file.Paths;

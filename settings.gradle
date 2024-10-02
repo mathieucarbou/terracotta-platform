@@ -1,0 +1,107 @@
+pluginManagement {
+  plugins {
+    id 'org.asciidoctor.jvm.convert' version '4.0.3'
+    id 'org.asciidoctor.jvm.gems' version '4.0.3'
+    id 'biz.aQute.bnd.builder' version '6.4.0'
+  }
+  includeBuild 'build-logic'
+}
+
+plugins {
+  id 'org.terracotta.build.cache'
+}
+
+rootProject.name = 'terracotta-platform'
+
+include ':common:test-utilities',
+    ':common:inet',
+    ':common:json',
+    ':common:nomad',
+    ':common:output-service',
+    ':common:sanskrit',
+    ':common:structures',
+    ':runnel',
+
+    // voltron proxy API
+    ':voltron-proxy:common',
+    ':voltron-proxy:client',
+    ':voltron-proxy:server',
+
+    // communicator API
+    ':communicator:common',
+    ':communicator:client',
+    ':communicator:server',
+
+    // voltron diagnostic service
+    ':diagnostic:model',
+    ':diagnostic:common',
+    ':diagnostic:client',
+    ':diagnostic:server-api',
+    ':diagnostic:server-plugin',
+
+    // other voltron service
+    ':client-message-tracker',
+    ':platform-base',
+
+    // dynamic-config API
+    ':dynamic-config:model',
+    ':dynamic-config:api',
+    ':dynamic-config:json',
+    ':dynamic-config:repository',
+    ':dynamic-config:server:api',
+
+    // voltron dynamic-config services
+    ':dynamic-config:server:config-provider',
+    // ':dynamic-config:server:services'
+
+    // management API
+    ':management:sequence-generator',
+    ':management:model',
+    ':management:registry',
+    ':management:monitoring:server-api'
+
+    // voltron monitoring service
+    // :management:monitoring:server-plugin',
+    // ':management:nms-agent-entity:client'
+    // ':management:nms-agent-entity:common'
+    // ':management:nms-agent-entity:server'
+    // ':management:nms-entity:client'
+    // ':management:nms-entity:common'
+    // ':management:nms-entity:server'
+    // ':management:testing:doc'
+    // ':management:testing:integration-tests'
+    // ':management:testing:'
+    // ':management:sample-entity'
+    // ':data-root-resource'
+    // ':docs'
+    // ':dynamic-config:cli:cli-support'
+    // ':dynamic-config:cli:config-tool'
+    // ':dynamic-config:cli:dynamic-config-cli-api'
+    // ':dynamic-config:cli:upgrade-tools'
+    // ':dynamic-config:cli:upgrade-tools-oss'
+    // ':dynamic-config:entities:management-entity:server'
+    // ':dynamic-config:entities:nomad-entity:client'
+    // ':dynamic-config:entities:nomad-entity:common'
+    // ':dynamic-config:entities:nomad-entity:server'
+    // ':dynamic-config:entities:topology-entity:client'
+    // ':dynamic-config:entities:topology-entity:common'
+    // ':dynamic-config:entities:topology-entity:server'
+    // ':dynamic-config:testing:entity'
+    // ':dynamic-config:testing:support'
+    // ':dynamic-config:testing:system-tests'
+    // ':galvan-platform-support'
+    // ':healthchecker-entity:api'
+    // ':healthchecker-entity:client-impl'
+    // ':healthchecker-entity:common'
+    // ':healthchecker-entity:server-impl'
+    // ':kit'
+    // ':layout'
+    // ':lease:api'
+    // ':lease:common'
+    // ':lease:entity-api'
+    // ':lease:entity-client'
+    // ':lease:entity-common'
+    // ':lease:entity-server'
+    // ':lease:passthrough-leased-connection-api'
+    // ':lease:system-test'
+    // ':offheap-resource'
