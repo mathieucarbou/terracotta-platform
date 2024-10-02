@@ -22,7 +22,7 @@ import org.terracotta.dynamic_config.api.model.NodeContext;
 import org.terracotta.dynamic_config.api.model.Setting;
 import org.terracotta.dynamic_config.api.model.Testing;
 import org.terracotta.dynamic_config.api.model.nomad.SettingNomadChange;
-import org.terracotta.dynamic_config.server.api.InvalidConfigChangeException;
+import org.terracotta.dynamic_config.api.server.InvalidConfigChangeException;
 import org.terracotta.lease.service.config.LeaseConfiguration;
 
 import static org.hamcrest.CoreMatchers.is;

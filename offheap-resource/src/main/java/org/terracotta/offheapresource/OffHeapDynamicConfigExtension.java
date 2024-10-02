@@ -19,7 +19,7 @@ package org.terracotta.offheapresource;
 import org.terracotta.dynamic_config.api.model.NodeContext;
 import org.terracotta.dynamic_config.api.model.Setting;
 import org.terracotta.dynamic_config.api.service.TopologyService;
-import org.terracotta.dynamic_config.server.api.ConfigChangeHandlerManager;
+import org.terracotta.dynamic_config.api.server.ConfigChangeHandlerManager;
 import org.terracotta.dynamic_config.server.api.DynamicConfigExtension;
 import org.terracotta.entity.PlatformConfiguration;
 
